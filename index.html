@@ -56,27 +56,27 @@
       $urlRouterProvider.otherwise("/route1")
       
       $stateProvider
-        .state('route1', {
-            url: "/route1",
-            templateUrl: "route1.html"
+        .state('city', {
+            url: "/city",
+            templateUrl: "city.html"
         })
-          .state('route1.list', {
+          .state('city.list', {
               url: "/list",
-              templateUrl: "route1.list.html",
+              templateUrl: "city.list.html",
               controller: function($scope){
-                $scope.items = ["A", "List", "Of", "Items"];
+                $scope.items = ["A", "List", "Of", "cities"];
               }
           })
           
-        .state('route2', {
-            url: "/route2",
-            templateUrl: "route2.html"
+        .state('country', {
+            url: "/country",
+            templateUrl: "country.html"
         })
-          .state('route2.list', {
+          .state('country.list', {
               url: "/list",
-              templateUrl: "route2.list.html",
+              templateUrl: "country.list.html",
               controller: function($scope){
-                $scope.things = ["A", "Set", "Of", "Things"];
+                $scope.things = ["A", "Set", "Of", "countries"];
               }
           })
     })

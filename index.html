@@ -14,15 +14,15 @@
     <div class="navbar-inner" style="width: 83%; margin-top: 40px;">
       <a class="brand" href="#"></a>
       <ul class="nav">
-        <li><a ui-sref="route1">SEARCH BY CITY</a></li>
-        <li><a ui-sref="route2">SEARCH BY COUNTRY</a></li>
+        <li><a ui-sref="nairobi" onclick="submit()">Nairobi</a></li>
+        <li><a ui-sref="kisumu" onclick="submit2()">Kisumu</a></li>
       </ul>
     </div>
   </div>
 
   <div class="row">
     <div class="span12">
-      <div class="well" ui-view></div>  
+      <div class="" ui-view></div>  
         <div class="container" hidden>
             <div class="jumbotron" style="width: 80%;">
             </div>
@@ -52,36 +52,50 @@
     var myapp = angular.module('myapp', ["ui.router"])
     myapp.config(function($stateProvider, $urlRouterProvider){
       
-      // For any unmatched url, send to /route1
-      $urlRouterProvider.otherwise("/route1")
+      // For any unmatched url, send to /nairobi
+      $urlRouterProvider.otherwise("/nairobi")
       
       $stateProvider
-        .state('city', {
-            url: "/city",
-            templateUrl: "city.html"
+        .state('nairobi', {
+            url: "/nairobi",
+            templateUrl: "nairobi.html"
         })
-          .state('city.list', {
+          .state('nairobi.list', {
               url: "/list",
-              templateUrl: "city.list.html",
+              templateUrl: "nairobi.list.html",
               controller: function($scope){
-                $scope.items = ["A", "List", "Of", "cities"];
+                $scope.items = ["A", "Perdictions", "Of", "nairobi"];
               }
           })
           
-        .state('country', {
-            url: "/country",
-            templateUrl: "country.html"
+        .state('kisumu', {
+            url: "/kisumu",
+            templateUrl: "kisumu.html"
         })
-          .state('country.list', {
+          .state('kisumu.list', {
               url: "/list",
-              templateUrl: "country.list.html",
+              templateUrl: "kisumu.list.html",
               controller: function($scope){
-                $scope.things = ["A", "Set", "Of", "countries"];
+                $scope.things = ["A", "Perdictions", "Of", "Kisumu"];
               }
           })
     })
   </script>
 
+<script type="text/javascript">
+function submit() {
+
+document.getElementById("weather").submit();
+}
+
+function submit2() {
+
+document.getElementById("kisumu").submit();
+}
+
+    
+
+</script> 
 </body>
 
 </html>

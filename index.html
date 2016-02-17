@@ -14,6 +14,7 @@
     <div class="navbar-inner" style="width: 83%; margin-top: 40px;">
       <a class="brand" href="#"></a>
       <ul class="nav">
+       <li><a ui-sref="search" >Search</a></li>
         <li><a ui-sref="nairobi" onclick="submit()">Nairobi</a></li>
         <li><a ui-sref="kisumu" onclick="submit2()">Kisumu</a></li>
       </ul>
@@ -53,6 +54,22 @@
     myapp.config(function($stateProvider, $urlRouterProvider){
       
       // For any unmatched url, send to /nairobi
+      $urlRouterProvider.otherwise("/search")
+
+      $stateProvider
+        .state('search', {
+            url: "/search",
+            templateUrl: "search.html"
+        })
+          .state('search.list', {
+              url: "/list",
+              templateUrl: "search.list.html",
+              controller: function($scope){
+                $scope.results = ["A", "Perdictions", "by", "search"];
+              }
+          })
+
+
       $urlRouterProvider.otherwise("/nairobi")
       
       $stateProvider
